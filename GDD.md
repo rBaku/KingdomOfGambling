@@ -59,7 +59,7 @@ Es un juego estratégico en donde eres un rey con problemas de ludopatia y tiene
 -
 
 ## Sprites
-- estilo sencillo "Basic Tower Defense By Cherlie" y "Mini World Sprites By Shade"
+- Estilo sencillo "Basic Tower Defense By Cherlie" y "Mini World Sprites By Shade"
 
 ## To do
 - Crear el castillo este debe tener una variable vida 
