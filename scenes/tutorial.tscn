@@ -108,4 +108,4 @@ layer_1/name = "sobreSuelo"
 layer_1/tile_data = PackedInt32Array()
 
 [node name="castle" parent="." instance=ExtResource("3_ky4vp")]
-position = Vector2(-8, -16)
+position = Vector2(-16, 0)
