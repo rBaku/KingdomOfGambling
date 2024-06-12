@@ -15,7 +15,6 @@
   - [Interfaz de usuario](#interfaz-de-usuario)
   - [Audio](#audio)
   - [Sprites](#sprites)
-  - [To do](#to-do)
 
 ## Resumen
 ### Titulo
@@ -60,11 +59,3 @@ Es un juego estratégico en donde eres un rey con problemas de ludopatia y tiene
 
 ## Sprites
 - Estilo sencillo "Basic Tower Defense By Cherlie" y "Mini World Sprites By Shade"
-
-## To do
-- Crear el castillo este debe tener una variable vida 
-- Crear el enemigo basico estos podran hacerle daño al castillo, seguiran un camino predeterminado y tendran una vida determinada
-- Crear torre basica esta podra disparar proytectiles a los enemigos con 100% de precision
-- Colocar estructuras 
-- Sistema de monedas este debera tener una variable publica llamada monedas 
-- Maquina tragamonedas esta debera verificar si el sistema posee X monedas so cumple la condicion se activara cuando se termine su activacion soltara un objeto al azar de su pool
