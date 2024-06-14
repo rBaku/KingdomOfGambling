@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://du1n3wopvo2l2"]
+[gd_scene load_steps=3 format=3 uid="uid://du1n3wopvo2l2"]
+
+[ext_resource type="Script" path="res://scripts/pathSpawner.gd" id="1_np3ct"]
 
 [sub_resource type="Curve2D" id="Curve2D_e5nse"]
 _data = {
@@ -13,3 +15,9 @@ curve = SubResource("Curve2D_e5nse")
 position = Vector2(-352, 72)
 rotates = false
 loop = false
+script = ExtResource("1_np3ct")
+
+[node name="Timer" type="Timer" parent="PathFollow2D"]
+autostart = true
+
+[connection signal="timeout" from="PathFollow2D/Timer" to="PathFollow2D" method="_on_timer_timeout"]
