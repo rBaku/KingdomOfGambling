@@ -2,10 +2,10 @@ extends Resource
 
 class_name Spawn_info
 
-@export var time_start:int
-@export var time_end:int
+@export var timeStart:int
+@export var timeEnd:int
 @export var enemy:Resource
-@export var enemy_num:int
-@export var enemy_spawn_delay_int:int
+@export var enemyNum:int
+@export var enemySpawnDelay:int
 
-var spawn_delay_counter = 0
+var spawnDelayCounter = 0
