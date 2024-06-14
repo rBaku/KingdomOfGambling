@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://du1n3wopvo2l2"]
+
+[ext_resource type="Script" path="res://scripts/pathSpawner.gd" id="1_np3ct"]
+
+[sub_resource type="Curve2D" id="Curve2D_e5nse"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -352, 72, 0, 0, 0, 0, -201, 72, 0, 0, 0, 0, -200, 57, 0, 0, 0, 0, -185, 56, 0, 0, 0, 0, -184, -40, 0, 0, 0, 0, -120, -41, 0, 0, 0, 0, -120, -41, 0, 0, 0, 0, -120, -7, 0, 0, 0, 0, -43, -7)
+}
+point_count = 9
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource("Curve2D_e5nse")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-352, 72)
+rotates = false
+loop = false
+script = ExtResource("1_np3ct")
+
+[node name="Timer" type="Timer" parent="PathFollow2D"]
+autostart = true
+
+[connection signal="timeout" from="PathFollow2D/Timer" to="PathFollow2D" method="_on_timer_timeout"]

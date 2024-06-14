@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dspjqdkkpdxc4" path="res://Assets/Sprites/MiniWorldSpritesByShade/Buildings/Red/RedBarracks.png" id="2_o6f61"]
 [ext_resource type="PackedScene" uid="uid://c1abkuuy0dbcp" path="res://scenes/castle.tscn" id="3_ky4vp"]
 [ext_resource type="Script" path="res://scripts/pathSpawner.gd" id="4_h0qsd"]
-[ext_resource type="PackedScene" uid="uid://dxk4cjnysveiu" path="res://scenes/slime.tscn" id="5_ar6tu"]
-[ext_resource type="Script" path="res://scripts/spawnInfo.gd" id="6_td5vb"]
+[ext_resource type="PackedScene" uid="uid://dxk4cjnysveiu" path="res://scenes/slime.tscn" id="4_w1r3h"]
+[ext_resource type="Script" path="res://scripts/spawnInfo.gd" id="6_wb8hf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeqcf"]
 texture = ExtResource("1_o1c1s")
@@ -102,13 +102,13 @@ _data = {
 }
 point_count = 9
 
-[sub_resource type="Resource" id="Resource_w0261"]
-script = ExtResource("6_td5vb")
+[sub_resource type="Resource" id="Resource_v67rc"]
+script = ExtResource("6_wb8hf")
 timeStart = 0
-timeEnd = 20
-enemy = ExtResource("5_ar6tu")
-enemyNum = 10
-enemySpawnDelay = 2
+timeEnd = 60
+enemy = ExtResource("4_w1r3h")
+enemyNum = 1
+enemySpawnDelay = 0
 
 [node name="Tutorial" type="Node2D"]
 
@@ -128,7 +128,6 @@ layer_1/tile_data = PackedInt32Array()
 position = Vector2(-16, -5)
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(1, -2)
 curve = SubResource("Curve2D_e5nse")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
@@ -136,9 +135,7 @@ position = Vector2(-352, 72)
 rotates = false
 loop = false
 script = ExtResource("4_h0qsd")
-spawns = Array[ExtResource("6_td5vb")]([SubResource("Resource_w0261")])
+spawns = Array[ExtResource("6_wb8hf")]([SubResource("Resource_v67rc")])
 
-[node name="Timer" type="Timer" parent="Path2D/PathFollow2D"]
+[node name="Timer" type="Timer" parent="Path2D"]
 autostart = true
-
-[connection signal="timeout" from="Path2D/PathFollow2D/Timer" to="Path2D/PathFollow2D" method="_on_timer_timeout"]
