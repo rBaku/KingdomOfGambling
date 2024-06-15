@@ -1,11 +1,25 @@
 extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
+var state 
+enum {ROLL,STOP,ROLLBACK}
+var rollDuration = 3
+var rollBackDuration =0.5
+@export var reelID:int
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Global.coins >= 25 and state != ROLL:
+		state = ROLL
+	
+	match state:
+		ROLLBACK:
+			rollBackDuration -= delta
+			if rollBackDuration <= 0:
+				state = ROLL
+		ROLL:
+			
+			rollDuration -= delta
+			if rollDuration <= 0:
+				state = STOP
+		STOP:
+			pass
+	
+#https://github.com/brwxisme/SlotMachineTutorial/blob/main/Scripts/Reel.gd

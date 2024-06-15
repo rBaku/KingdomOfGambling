@@ -11,3 +11,7 @@ script = ExtResource("1_gs43p")
 scale = Vector2(5.6866, 5.6866)
 texture = ExtResource("1_50ich")
 hframes = 4
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
