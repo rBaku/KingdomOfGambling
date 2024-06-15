@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b8j24eesy51pw"]
+[gd_scene load_steps=18 format=3 uid="uid://b8j24eesy51pw"]
 
 [ext_resource type="Texture2D" uid="uid://c7u3m6l1gmtx1" path="res://Assets/Sprites/BasicTowerDefenseByCherlie.png" id="1_o1c1s"]
 [ext_resource type="Texture2D" uid="uid://dspjqdkkpdxc4" path="res://Assets/Sprites/MiniWorldSpritesByShade/Buildings/Red/RedBarracks.png" id="2_o6f61"]
@@ -8,8 +8,11 @@
 [ext_resource type="Script" path="res://scripts/spawnInfo.gd" id="6_td5vb"]
 [ext_resource type="PackedScene" uid="uid://b7c4pbaitia62" path="res://scenes/Tower.tscn" id="7_48pic"]
 [ext_resource type="PackedScene" uid="uid://bc3p0wtsk71xj" path="res://scenes/Maquina.tscn" id="8_8r3jb"]
-[ext_resource type="PackedScene" uid="uid://brw7ekobrk4yd" path="res://scenes/inventory.tscn" id="9_ele0m"]
-[ext_resource type="PackedScene" uid="uid://dl53yxijeosaw" path="res://scenes/coin_counter.tscn" id="10_cipbm"]
+[ext_resource type="Script" path="res://scripts/Polygon2D.gd" id="9_nw2h3"]
+[ext_resource type="PackedScene" uid="uid://dl53yxijeosaw" path="res://scenes/coin_counter.tscn" id="10_rtv0j"]
+[ext_resource type="FontFile" uid="uid://dkt8o8tx8d1rd" path="res://Assets/Fonts/PublicPixel-z84yD.ttf" id="10_vo1w6"]
+[ext_resource type="Script" path="res://scripts/tower_qty.gd" id="11_p2ucl"]
+[ext_resource type="Texture2D" uid="uid://cij7wq524043d" path="res://Assets/Sprites/menu.png" id="12_6vseo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeqcf"]
 texture = ExtResource("1_o1c1s")
@@ -126,7 +129,7 @@ position = Vector2(-1, 0)
 
 [node name="Tower" parent="." instance=ExtResource("7_48pic")]
 position = Vector2(-236, 32)
-scale = Vector2(1.00355, 1.01417)
+placed = true
 
 [node name="PathLeft" type="Node2D" parent="."]
 position = Vector2(-10, -8)
@@ -139,14 +142,60 @@ autostart = true
 [node name="Maquina" parent="." instance=ExtResource("8_8r3jb")]
 position = Vector2(273, -143)
 
-[node name="inventory" parent="." instance=ExtResource("9_ele0m")]
+[node name="inventory" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = -360.0
 offset_top = 77.0
 offset_right = -360.0
 offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.6, 0.6)
+size_flags_horizontal = 4
+size_flags_vertical = 8
 
-[node name="coin_counter" parent="." instance=ExtResource("10_cipbm")]
-position = Vector2(-345, -180)
+[node name="Polygon2D" type="Polygon2D" parent="inventory"]
+visible = false
+position = Vector2(0, 200)
+color = Color(0.281919, 0.281919, 0.281919, 0.458824)
+polygon = PackedVector2Array(0, 0, 0, -136, 1152, -136, 1152, 0)
+script = ExtResource("9_nw2h3")
+
+[node name="twr_qty" type="Label" parent="inventory/Polygon2D" node_paths=PackedStringArray("scene")]
+offset_left = 171.0
+offset_top = -56.0
+offset_right = 211.0
+offset_bottom = -33.0
+theme_override_fonts/font = ExtResource("10_vo1w6")
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("11_p2ucl")
+scene = NodePath("../../..")
+
+[node name="tower_Button" type="Button" parent="inventory/Polygon2D"]
+offset_left = 178.0
+offset_top = -90.0
+offset_right = 202.0
+offset_bottom = -59.0
+theme_override_fonts/font = ExtResource("10_vo1w6")
+text = "T"
+
+[node name="menu_Button" type="Button" parent="inventory"]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 16.0
+offset_right = 1128.0
+offset_bottom = 56.0
+icon = ExtResource("12_6vseo")
+icon_alignment = 1
+expand_icon = true
+
+[node name="coin_counter" parent="." instance=ExtResource("10_rtv0j")]
+position = Vector2(-348, -189)
 
 [connection signal="timeout" from="PathLeft/Timer" to="PathLeft" method="_on_timer_timeout"]
+[connection signal="pressed" from="inventory/Polygon2D/tower_Button" to="inventory/Polygon2D/twr_qty" method="_on_button_pressed"]
+[connection signal="pressed" from="inventory/menu_Button" to="inventory/Polygon2D" method="_on_menu_button_pressed"]
