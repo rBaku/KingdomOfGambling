@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://6x1ripb5cqx5"]
 
-[ext_resource type="Script" path="res://scripts/Area2D.gd" id="1_uqt26"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_f1078"]
 [ext_resource type="Texture2D" uid="uid://7fbk8nrodhwg" path="res://Assets/Sprites/MiniWorldSpritesByShade/Nature/Cactus.png" id="2_0ax42"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4wd3p"]
-radius = 5.11441
+radius = 6.39301
 
 [node name="Bullet" type="Area2D"]
-script = ExtResource("1_uqt26")
+script = ExtResource("1_f1078")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -2)

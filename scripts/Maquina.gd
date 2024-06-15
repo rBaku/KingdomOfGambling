@@ -1,11 +1,27 @@
 extends Node2D
 
+@export var pool: Array[Pool] = []
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var state = ROLLBACK
+enum {ROLL,STOP,ROLLBACK}
+var rollDuration = 3
+var rollBackDuration =0.5
 
+func _process(delta):		
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	
+	match state:
+		ROLLBACK:
+			if Global.coins >= 25 and state != ROLL:
+				Global.coins-=25
+				state = ROLL
+		ROLL:
+			
+			rollDuration -= delta
+			if rollDuration <= 0:
+				state = ROLLBACK
+				Global.tower_qty += 1
+				rollDuration = 3
+				
+	
+#https://github.com/brwxisme/SlotMachineTutorial/blob/main/Scripts/Reel.gd

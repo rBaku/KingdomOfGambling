@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b88x0j05hn103"]
+
+[ext_resource type="Texture2D" uid="uid://52cipn8iafhr" path="res://Assets/Sprites/MiniWorldSpritesByShade/Buildings/Cyan/CyanTower.png" id="1_07gdg"]
+[ext_resource type="Script" path="res://scripts/test_follow.gd" id="2_2gkms"]
+
+[node name="spawned_twr" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_07gdg")
+hframes = 3
+vframes = 6
+script = ExtResource("2_2gkms")

@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://brw7ekobrk4yd"]
+
+[ext_resource type="Script" path="res://scripts/Polygon2D.gd" id="1_falf2"]
+[ext_resource type="FontFile" uid="uid://dkt8o8tx8d1rd" path="res://Assets/Fonts/PublicPixel-z84yD.ttf" id="2_kro5o"]
+[ext_resource type="Script" path="res://scripts/tower_qty.gd" id="3_n5ti4"]
+[ext_resource type="Texture2D" uid="uid://cij7wq524043d" path="res://Assets/Sprites/menu.png" id="4_et4en"]
+
+[node name="inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(0, 200)
+color = Color(0.281919, 0.281919, 0.281919, 0.458824)
+polygon = PackedVector2Array(0, 0, 0, -136, 1152, -136, 1152, 0)
+script = ExtResource("1_falf2")
+
+[node name="twr_qty" type="Label" parent="Polygon2D"]
+offset_left = 171.0
+offset_top = -56.0
+offset_right = 211.0
+offset_bottom = -33.0
+theme_override_fonts/font = ExtResource("2_kro5o")
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("3_n5ti4")
+
+[node name="tower_Button" type="Button" parent="Polygon2D"]
+offset_left = 178.0
+offset_top = -90.0
+offset_right = 202.0
+offset_bottom = -59.0
+theme_override_fonts/font = ExtResource("2_kro5o")
+text = "T"
+
+[node name="menu_Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 16.0
+offset_right = 1128.0
+offset_bottom = 56.0
+icon = ExtResource("4_et4en")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="Polygon2D/tower_Button" to="Polygon2D/twr_qty" method="_on_button_pressed"]
+[connection signal="pressed" from="menu_Button" to="Polygon2D" method="_on_menu_button_pressed"]
