@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8j24eesy51pw"]
+[gd_scene load_steps=13 format=3 uid="uid://b8j24eesy51pw"]
 
 [ext_resource type="Texture2D" uid="uid://c7u3m6l1gmtx1" path="res://Assets/Sprites/BasicTowerDefenseByCherlie.png" id="1_o1c1s"]
 [ext_resource type="Texture2D" uid="uid://dspjqdkkpdxc4" path="res://Assets/Sprites/MiniWorldSpritesByShade/Buildings/Red/RedBarracks.png" id="2_o6f61"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://du1n3wopvo2l2" path="res://scenes/Path.tscn" id="5_f1lou"]
 [ext_resource type="Script" path="res://scripts/spawnInfo.gd" id="6_td5vb"]
 [ext_resource type="PackedScene" uid="uid://b7c4pbaitia62" path="res://scenes/Tower.tscn" id="7_48pic"]
+[ext_resource type="PackedScene" uid="uid://dl53yxijeosaw" path="res://scenes/coin_counter.tscn" id="8_l3gwi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeqcf"]
 texture = ExtResource("1_o1c1s")
@@ -130,5 +131,8 @@ spawns = Array[ExtResource("6_td5vb")]([SubResource("Resource_hr42d")])
 
 [node name="Timer" type="Timer" parent="PathLeft"]
 autostart = true
+
+[node name="coin_counter" parent="." instance=ExtResource("8_l3gwi")]
+position = Vector2(-349, -190)
 
 [connection signal="timeout" from="PathLeft/Timer" to="PathLeft" method="_on_timer_timeout"]
