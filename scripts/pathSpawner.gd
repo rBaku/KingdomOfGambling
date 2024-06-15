@@ -18,8 +18,5 @@ func _on_timer_timeout():
 			else:
 				enemy.spawnDelayCounter = 0
 				newEnemy = enemy.enemy
-				counter = 0
-				while counter < enemy.enemyNum:
-					enemySpawn = newEnemy.instantiate()
-					self.add_child(enemySpawn)
-					counter += 1
+				enemySpawn = newEnemy.instantiate()
+				self.add_child(enemySpawn)

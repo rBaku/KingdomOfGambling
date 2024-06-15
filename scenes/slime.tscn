@@ -28,9 +28,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uyomf"]
 size = Vector2(4.84598, 10.6667)
 
-[node name="Slime" type="CharacterBody2D"]
+[node name="Slime" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_6aktt")
-speed = 35
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_t6k4w")

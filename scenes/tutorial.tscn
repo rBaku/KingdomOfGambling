@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dspjqdkkpdxc4" path="res://Assets/Sprites/MiniWorldSpritesByShade/Buildings/Red/RedBarracks.png" id="2_o6f61"]
 [ext_resource type="PackedScene" uid="uid://c1abkuuy0dbcp" path="res://scenes/castle.tscn" id="3_ky4vp"]
 [ext_resource type="Script" path="res://scripts/pathSpawner.gd" id="4_h0qsd"]
-[ext_resource type="PackedScene" uid="uid://dxk4cjnysveiu" path="res://scenes/slime.tscn" id="5_ar6tu"]
+[ext_resource type="PackedScene" uid="uid://du1n3wopvo2l2" path="res://scenes/Path.tscn" id="5_f1lou"]
 [ext_resource type="Script" path="res://scripts/spawnInfo.gd" id="6_td5vb"]
+[ext_resource type="PackedScene" uid="uid://y0v7eoqcat61" path="res://scenes/default_tower.tscn" id="7_ac1qy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeqcf"]
 texture = ExtResource("1_o1c1s")
@@ -96,18 +97,11 @@ texture = ExtResource("2_o6f61")
 sources/0 = SubResource("TileSetAtlasSource_eeqcf")
 sources/4 = SubResource("TileSetAtlasSource_fwijs")
 
-[sub_resource type="Curve2D" id="Curve2D_e5nse"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -352, 72, 0, 0, 0, 0, -201, 72, 0, 0, 0, 0, -200, 57, 0, 0, 0, 0, -185, 56, 0, 0, 0, 0, -184, -40, 0, 0, 0, 0, -120, -41, 0, 0, 0, 0, -120, -41, 0, 0, 0, 0, -120, -7, 0, 0, 0, 0, -43, -7)
-}
-point_count = 9
-
-[sub_resource type="Resource" id="Resource_w0261"]
+[sub_resource type="Resource" id="Resource_hr42d"]
 script = ExtResource("6_td5vb")
 timeStart = 0
-timeEnd = 20
-enemy = ExtResource("5_ar6tu")
-enemyNum = 10
+timeEnd = 10
+enemy = ExtResource("5_f1lou")
 enemySpawnDelay = 2
 
 [node name="Tutorial" type="Node2D"]
@@ -127,18 +121,16 @@ layer_1/tile_data = PackedInt32Array()
 [node name="castle" parent="." instance=ExtResource("3_ky4vp")]
 position = Vector2(-16, -5)
 
-[node name="Path2D" type="Path2D" parent="."]
-position = Vector2(1, -2)
-curve = SubResource("Curve2D_e5nse")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-352, 72)
-rotates = false
-loop = false
+[node name="PathLeft" type="Node2D" parent="."]
 script = ExtResource("4_h0qsd")
-spawns = Array[ExtResource("6_td5vb")]([SubResource("Resource_w0261")])
+spawns = Array[ExtResource("6_td5vb")]([SubResource("Resource_hr42d")])
 
-[node name="Timer" type="Timer" parent="Path2D/PathFollow2D"]
+[node name="Timer" type="Timer" parent="PathLeft"]
 autostart = true
 
-[connection signal="timeout" from="Path2D/PathFollow2D/Timer" to="Path2D/PathFollow2D" method="_on_timer_timeout"]
+[node name="Towers" type="Node2D" parent="."]
+
+[node name="DefaultTower" parent="Towers" instance=ExtResource("7_ac1qy")]
+position = Vector2(-238, 52)
+
+[connection signal="timeout" from="PathLeft/Timer" to="PathLeft" method="_on_timer_timeout"]
