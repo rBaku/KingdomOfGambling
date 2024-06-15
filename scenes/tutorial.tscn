@@ -137,10 +137,10 @@ autostart = true
 position = Vector2(273, -143)
 
 [node name="inventory" parent="." instance=ExtResource("9_ele0m")]
-offset_left = -364.0
-offset_top = 115.0
-offset_right = -364.0
-offset_bottom = 115.0
+offset_left = -360.0
+offset_top = 77.0
+offset_right = -360.0
+offset_bottom = 77.0
 scale = Vector2(0.6, 0.6)
 
 [connection signal="timeout" from="PathLeft/Timer" to="PathLeft" method="_on_timer_timeout"]
