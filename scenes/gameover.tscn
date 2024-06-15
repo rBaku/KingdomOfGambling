@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcftu2mk5l4eu"]
+
+[ext_resource type="Script" path="res://scripts/gameover.gd" id="1_enwjl"]
+[ext_resource type="Texture2D" uid="uid://dnfml1f4rcyx3" path="res://Assets/Untitled.jpeg" id="2_oegjc"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_enwjl")
+
+[node name="background" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -579.0
+offset_top = -323.0
+offset_right = 574.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.99999, -3.5)
+scale = Vector2(0.955, 0.403125)
+texture = ExtResource("2_oegjc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="text" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "GAME OVER"
+
+[node name="retry" type="Button" parent="."]
+offset_left = -148.0
+offset_top = 86.0
+offset_right = 148.0
+offset_bottom = 163.0
+theme_override_font_sizes/font_size = 50
+text = "NO HANDS?"
+
+[connection signal="pressed" from="retry" to="." method="_on_retry_pressed"]

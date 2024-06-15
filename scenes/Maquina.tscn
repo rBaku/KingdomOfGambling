@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc3p0wtsk71xj"]
+[gd_scene load_steps=6 format=3 uid="uid://bc3p0wtsk71xj"]
 
 [ext_resource type="Texture2D" uid="uid://bqxh57a8ybceq" path="res://Assets/Sprites/MiniWorldSpritesByShade/Miscellaneous/Portal.png" id="1_50ich"]
 [ext_resource type="Script" path="res://scripts/Maquina.gd" id="1_gs43p"]
+[ext_resource type="PackedScene" uid="uid://b7c4pbaitia62" path="res://scenes/Tower.tscn" id="2_np6c6"]
+[ext_resource type="Script" path="res://scripts/Pool.gd" id="3_jsf6k"]
+
+[sub_resource type="Resource" id="Resource_4qluv"]
+script = ExtResource("3_jsf6k")
+Probaility = 100.0
+Torre = ExtResource("2_np6c6")
 
 [node name="Maquina" type="Node2D"]
 scale = Vector2(0.99399, 0.982449)
 script = ExtResource("1_gs43p")
+pool = Array[ExtResource("3_jsf6k")]([SubResource("Resource_4qluv")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(5.6866, 5.6866)
