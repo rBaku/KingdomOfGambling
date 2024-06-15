@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=13 format=3 uid="uid://b8j24eesy51pw"]
-=======
 [gd_scene load_steps=14 format=3 uid="uid://b8j24eesy51pw"]
->>>>>>> Tutorial
 
 [ext_resource type="Texture2D" uid="uid://c7u3m6l1gmtx1" path="res://Assets/Sprites/BasicTowerDefenseByCherlie.png" id="1_o1c1s"]
 [ext_resource type="Texture2D" uid="uid://dspjqdkkpdxc4" path="res://Assets/Sprites/MiniWorldSpritesByShade/Buildings/Red/RedBarracks.png" id="2_o6f61"]
@@ -11,12 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://du1n3wopvo2l2" path="res://scenes/Path.tscn" id="5_f1lou"]
 [ext_resource type="Script" path="res://scripts/spawnInfo.gd" id="6_td5vb"]
 [ext_resource type="PackedScene" uid="uid://b7c4pbaitia62" path="res://scenes/Tower.tscn" id="7_48pic"]
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://dl53yxijeosaw" path="res://scenes/coin_counter.tscn" id="8_l3gwi"]
-=======
 [ext_resource type="PackedScene" uid="uid://bc3p0wtsk71xj" path="res://scenes/Maquina.tscn" id="8_8r3jb"]
-[ext_resource type="PackedScene" uid="uid://dl53yxijeosaw" path="res://scenes/coin_counter.tscn" id="9_6wgq8"]
->>>>>>> Tutorial
+[ext_resource type="PackedScene" uid="uid://brw7ekobrk4yd" path="res://scenes/inventory.tscn" id="9_ele0m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeqcf"]
 texture = ExtResource("1_o1c1s")
@@ -110,9 +102,9 @@ sources/4 = SubResource("TileSetAtlasSource_fwijs")
 [sub_resource type="Resource" id="Resource_hr42d"]
 script = ExtResource("6_td5vb")
 timeStart = 0
-timeEnd = 50
+timeEnd = 5
 enemy = ExtResource("5_f1lou")
-enemySpawnDelay = 2
+enemySpawnDelay = 1
 
 [node name="Tutorial" type="Node2D"]
 
@@ -141,15 +133,14 @@ spawns = Array[ExtResource("6_td5vb")]([SubResource("Resource_hr42d")])
 [node name="Timer" type="Timer" parent="PathLeft"]
 autostart = true
 
-<<<<<<< HEAD
-[node name="coin_counter" parent="." instance=ExtResource("8_l3gwi")]
-position = Vector2(-349, -190)
-=======
 [node name="Maquina" parent="." instance=ExtResource("8_8r3jb")]
 position = Vector2(273, -143)
 
-[node name="coin_counter" parent="." instance=ExtResource("9_6wgq8")]
-position = Vector2(-345, -181)
->>>>>>> Tutorial
+[node name="inventory" parent="." instance=ExtResource("9_ele0m")]
+offset_left = -364.0
+offset_top = 115.0
+offset_right = -364.0
+offset_bottom = 115.0
+scale = Vector2(0.6, 0.6)
 
 [connection signal="timeout" from="PathLeft/Timer" to="PathLeft" method="_on_timer_timeout"]
