@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scripts/pathSpawner.gd" id="4_h0qsd"]
 [ext_resource type="PackedScene" uid="uid://du1n3wopvo2l2" path="res://scenes/Path.tscn" id="5_f1lou"]
 [ext_resource type="Script" path="res://scripts/spawnInfo.gd" id="6_td5vb"]
-[ext_resource type="PackedScene" uid="uid://y0v7eoqcat61" path="res://scenes/default_tower.tscn" id="7_ac1qy"]
+[ext_resource type="PackedScene" uid="uid://b7c4pbaitia62" path="res://scenes/Tower.tscn" id="7_48pic"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeqcf"]
 texture = ExtResource("1_o1c1s")
@@ -121,16 +121,14 @@ layer_1/tile_data = PackedInt32Array()
 [node name="castle" parent="." instance=ExtResource("3_ky4vp")]
 position = Vector2(-16, -5)
 
+[node name="Tower" parent="." instance=ExtResource("7_48pic")]
+position = Vector2(-220, 50)
+
 [node name="PathLeft" type="Node2D" parent="."]
 script = ExtResource("4_h0qsd")
 spawns = Array[ExtResource("6_td5vb")]([SubResource("Resource_hr42d")])
 
 [node name="Timer" type="Timer" parent="PathLeft"]
 autostart = true
-
-[node name="Towers" type="Node2D" parent="."]
-
-[node name="DefaultTower" parent="Towers" instance=ExtResource("7_ac1qy")]
-position = Vector2(-238, 52)
 
 [connection signal="timeout" from="PathLeft/Timer" to="PathLeft" method="_on_timer_timeout"]

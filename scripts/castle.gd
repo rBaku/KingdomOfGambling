@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 @export var vidaMaxima = 100
+
 var vida: float
 
 func _ready():
