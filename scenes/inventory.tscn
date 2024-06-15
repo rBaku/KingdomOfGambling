@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://brw7ekobrk4yd"]
 
-[ext_resource type="Script" path="res://scenes/Polygon2D.gd" id="2_cb0bo"]
+[ext_resource type="Script" path="res://scripts/Polygon2D.gd" id="1_x7bv8"]
 [ext_resource type="FontFile" uid="uid://dkt8o8tx8d1rd" path="res://Assets/Fonts/PublicPixel-z84yD.ttf" id="2_kro5o"]
 [ext_resource type="Script" path="res://scripts/tower_qty.gd" id="3_n5ti4"]
 [ext_resource type="Texture2D" uid="uid://cij7wq524043d" path="res://Assets/Sprites/menu.png" id="4_et4en"]
@@ -20,7 +20,7 @@ visible = false
 position = Vector2(0, 200)
 color = Color(0.281919, 0.281919, 0.281919, 0.458824)
 polygon = PackedVector2Array(0, 0, 0, -136, 1152, -136, 1152, 0)
-script = ExtResource("2_cb0bo")
+script = ExtResource("1_x7bv8")
 
 [node name="twr_qty" type="Label" parent="Polygon2D"]
 offset_left = 171.0
