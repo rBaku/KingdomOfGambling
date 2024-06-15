@@ -6,6 +6,7 @@ extends Area2D
 @export var detection_range : float = 100.0
 # Variables internas
 var target : Node2D = null
+var targets := []
 
 func _ready():
 	$Timer.wait_time = fire_rate
@@ -17,11 +18,13 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("targets"):
-		target = body
+		targets.append(body)
+		if targets != []: target = targets[0]
 
 func _on_Area2D_body_exited(body):
-	if body == target:
-		target = null
+	targets.erase(body)
+	if targets != []: target = targets[0]
+	if targets == []: target = null
 
 func _on_Timer_timeout():
 	if target:
