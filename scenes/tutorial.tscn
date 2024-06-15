@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8j24eesy51pw"]
+[gd_scene load_steps=13 format=3 uid="uid://b8j24eesy51pw"]
 
 [ext_resource type="Texture2D" uid="uid://c7u3m6l1gmtx1" path="res://Assets/Sprites/BasicTowerDefenseByCherlie.png" id="1_o1c1s"]
 [ext_resource type="Texture2D" uid="uid://dspjqdkkpdxc4" path="res://Assets/Sprites/MiniWorldSpritesByShade/Buildings/Red/RedBarracks.png" id="2_o6f61"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/pathSpawner.gd" id="4_h0qsd"]
 [ext_resource type="PackedScene" uid="uid://dxk4cjnysveiu" path="res://scenes/slime.tscn" id="5_ar6tu"]
 [ext_resource type="Script" path="res://scripts/spawnInfo.gd" id="6_td5vb"]
+[ext_resource type="PackedScene" uid="uid://y0v7eoqcat61" path="res://scenes/default_tower.tscn" id="7_cut7d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeqcf"]
 texture = ExtResource("1_o1c1s")
@@ -138,7 +139,14 @@ loop = false
 script = ExtResource("4_h0qsd")
 spawns = Array[ExtResource("6_td5vb")]([SubResource("Resource_w0261")])
 
+[node name="Slime" parent="Path2D/PathFollow2D" instance=ExtResource("5_ar6tu")]
+
 [node name="Timer" type="Timer" parent="Path2D/PathFollow2D"]
 autostart = true
+
+[node name="Towers" type="Node2D" parent="."]
+
+[node name="DefaultTower" parent="." instance=ExtResource("7_cut7d")]
+position = Vector2(-159, 47)
 
 [connection signal="timeout" from="Path2D/PathFollow2D/Timer" to="Path2D/PathFollow2D" method="_on_timer_timeout"]
