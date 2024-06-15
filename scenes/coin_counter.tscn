@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl53yxijeosaw"]
+
+[ext_resource type="FontFile" uid="uid://dkt8o8tx8d1rd" path="res://Assets/Fonts/PublicPixel-z84yD.ttf" id="1_h2fm8"]
+[ext_resource type="Script" path="res://Coins.gd" id="2_p1j23"]
+
+[node name="coin_counter" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_h2fm8")
+text = "Coins: "
+script = ExtResource("2_p1j23")
