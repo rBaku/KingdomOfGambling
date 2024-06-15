@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://du1n3wopvo2l2" path="res://scenes/Path.tscn" id="5_f1lou"]
 [ext_resource type="Script" path="res://scripts/spawnInfo.gd" id="6_td5vb"]
 [ext_resource type="PackedScene" uid="uid://b7c4pbaitia62" path="res://scenes/Tower.tscn" id="7_48pic"]
-[ext_resource type="PackedScene" uid="uid://bc3p0wtsk71xj" path="res://scenes/Maquina.tscn" id="8_8r3jb"]
-[ext_resource type="PackedScene" uid="uid://dl53yxijeosaw" path="res://scenes/coin_counter.tscn" id="9_6wgq8"]
+[ext_resource type="PackedScene" path="res://scenes/Maquina.tscn" id="8_8r3jb"]
+[ext_resource type="PackedScene" path="res://scenes/coin_counter.tscn" id="9_6wgq8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeqcf"]
 texture = ExtResource("1_o1c1s")
@@ -121,12 +121,13 @@ layer_1/name = "sobreSuelo"
 layer_1/tile_data = PackedInt32Array()
 
 [node name="castle" parent="." instance=ExtResource("3_ky4vp")]
-position = Vector2(-16, -5)
+position = Vector2(-1, 0)
 
 [node name="Tower" parent="." instance=ExtResource("7_48pic")]
-position = Vector2(-220, 50)
+position = Vector2(-236, 32)
 
 [node name="PathLeft" type="Node2D" parent="."]
+position = Vector2(-10, -8)
 script = ExtResource("4_h0qsd")
 spawns = Array[ExtResource("6_td5vb")]([SubResource("Resource_hr42d")])
 
