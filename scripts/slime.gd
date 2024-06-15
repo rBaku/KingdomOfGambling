@@ -9,7 +9,8 @@ func _process(delta):
 		
 
 func _physics_process(delta):
-	Input.is_key_pressed(KEY_ENTER)
-
+	if Input.is_key_pressed(KEY_ENTER):
+		queue_free()
 func _exit_tree():
 	Global.coins += 10
+	
