@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc3p0wtsk71xj"]
+
+[ext_resource type="Texture2D" uid="uid://bqxh57a8ybceq" path="res://Assets/Sprites/MiniWorldSpritesByShade/Miscellaneous/Portal.png" id="1_50ich"]
+[ext_resource type="Script" path="res://scripts/Maquina.gd" id="1_gs43p"]
+
+[node name="Maquina" type="Node2D"]
+scale = Vector2(0.99399, 0.982449)
+script = ExtResource("1_gs43p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5.6866, 5.6866)
+texture = ExtResource("1_50ich")
+hframes = 4
