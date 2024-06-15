@@ -1,9 +1,7 @@
 extends CharacterBody2D
 
-var speed: float = 100
-var health:= 200
-
-
+var speed: float = 35
+var health:= 100
 
 func _process(delta):
 	get_parent().set_progress(get_parent().get_progress() + speed*delta)	
