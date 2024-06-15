@@ -121,13 +121,12 @@ layer_1/name = "sobreSuelo"
 layer_1/tile_data = PackedInt32Array()
 
 [node name="castle" parent="." instance=ExtResource("3_ky4vp")]
-position = Vector2(-1, 0)
+position = Vector2(-16, -5)
 
 [node name="Tower" parent="." instance=ExtResource("7_48pic")]
-position = Vector2(-236, 32)
+position = Vector2(-220, 50)
 
 [node name="PathLeft" type="Node2D" parent="."]
-position = Vector2(-10, -8)
 script = ExtResource("4_h0qsd")
 spawns = Array[ExtResource("6_td5vb")]([SubResource("Resource_hr42d")])
 
