@@ -1,13 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8j24eesy51pw"]
+[gd_scene load_steps=12 format=3 uid="uid://b8j24eesy51pw"]
 
 [ext_resource type="Texture2D" uid="uid://c7u3m6l1gmtx1" path="res://Assets/Sprites/BasicTowerDefenseByCherlie.png" id="1_o1c1s"]
 [ext_resource type="Texture2D" uid="uid://dspjqdkkpdxc4" path="res://Assets/Sprites/MiniWorldSpritesByShade/Buildings/Red/RedBarracks.png" id="2_o6f61"]
 [ext_resource type="PackedScene" uid="uid://c1abkuuy0dbcp" path="res://scenes/castle.tscn" id="3_ky4vp"]
 [ext_resource type="Script" path="res://scripts/pathSpawner.gd" id="4_h0qsd"]
-[ext_resource type="PackedScene" uid="uid://du1n3wopvo2l2" path="res://scenes/Path.tscn" id="5_f1lou"]
-[ext_resource type="Script" path="res://scripts/spawnInfo.gd" id="6_td5vb"]
-[ext_resource type="PackedScene" uid="uid://b7c4pbaitia62" path="res://scenes/Tower.tscn" id="7_48pic"]
-[ext_resource type="PackedScene" uid="uid://bc3p0wtsk71xj" path="res://scenes/Maquina.tscn" id="8_8r3jb"]
+[ext_resource type="PackedScene" uid="uid://dxk4cjnysveiu" path="res://scenes/slime.tscn" id="4_w1r3h"]
+[ext_resource type="Script" path="res://scripts/spawnInfo.gd" id="6_wb8hf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeqcf"]
 texture = ExtResource("1_o1c1s")
@@ -98,12 +96,19 @@ texture = ExtResource("2_o6f61")
 sources/0 = SubResource("TileSetAtlasSource_eeqcf")
 sources/4 = SubResource("TileSetAtlasSource_fwijs")
 
-[sub_resource type="Resource" id="Resource_hr42d"]
-script = ExtResource("6_td5vb")
+[sub_resource type="Curve2D" id="Curve2D_e5nse"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -352, 72, 0, 0, 0, 0, -201, 72, 0, 0, 0, 0, -200, 57, 0, 0, 0, 0, -185, 56, 0, 0, 0, 0, -184, -40, 0, 0, 0, 0, -120, -41, 0, 0, 0, 0, -120, -41, 0, 0, 0, 0, -120, -7, 0, 0, 0, 0, -43, -7)
+}
+point_count = 9
+
+[sub_resource type="Resource" id="Resource_v67rc"]
+script = ExtResource("6_wb8hf")
 timeStart = 0
-timeEnd = 5
-enemy = ExtResource("5_f1lou")
-enemySpawnDelay = 1
+timeEnd = 60
+enemy = ExtResource("4_w1r3h")
+enemyNum = 1
+enemySpawnDelay = 0
 
 [node name="Tutorial" type="Node2D"]
 
@@ -122,17 +127,15 @@ layer_1/tile_data = PackedInt32Array()
 [node name="castle" parent="." instance=ExtResource("3_ky4vp")]
 position = Vector2(-16, -5)
 
-[node name="Tower" parent="." instance=ExtResource("7_48pic")]
-position = Vector2(-220, 50)
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_e5nse")
 
-[node name="PathLeft" type="Node2D" parent="."]
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-352, 72)
+rotates = false
+loop = false
 script = ExtResource("4_h0qsd")
-spawns = Array[ExtResource("6_td5vb")]([SubResource("Resource_hr42d")])
+spawns = Array[ExtResource("6_wb8hf")]([SubResource("Resource_v67rc")])
 
-[node name="Timer" type="Timer" parent="PathLeft"]
+[node name="Timer" type="Timer" parent="Path2D"]
 autostart = true
-
-[node name="Maquina" parent="." instance=ExtResource("8_8r3jb")]
-position = Vector2(273, -143)
-
-[connection signal="timeout" from="PathLeft/Timer" to="PathLeft" method="_on_timer_timeout"]
