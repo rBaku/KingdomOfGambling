@@ -6,8 +6,8 @@ var rollBackDuration =0.5
 @export var reelID:int
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Global.coins >= 25:
-		state = "ROLL"
+	if Global.coins >= 25 and state != ROLL:
+		state = ROLL
 	
 	match state:
 		ROLLBACK:
