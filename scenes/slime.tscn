@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxk4cjnysveiu"]
+
+[ext_resource type="Script" path="res://scripts/slime.gd" id="1_6aktt"]
+[ext_resource type="Texture2D" uid="uid://ccnr8e40mwcac" path="res://Assets/Sprites/MiniWorldSpritesByShade/Characters/Monsters/Slimes/Slime.png" id="1_cblym"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63o7n"]
+atlas = ExtResource("1_cblym")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrkea"]
+atlas = ExtResource("1_cblym")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t6k4w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63o7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrkea")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyomf"]
+size = Vector2(4.84598, 10.6667)
+
+[node name="Slime" type="CharacterBody2D" groups=["targets"]]
+script = ExtResource("1_6aktt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t6k4w")
+animation = &"idle"
+autoplay = "idle"
+frame = 1
+frame_progress = 0.784118
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.735)
+rotation = -3.14159
+scale = Vector2(1.64285, -0.392316)
+shape = SubResource("RectangleShape2D_uyomf")
