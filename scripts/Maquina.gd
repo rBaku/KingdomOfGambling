@@ -12,8 +12,8 @@ func _process(delta):
 	
 	match state:
 		ROLLBACK:
-			if Global.coins >= 25 and state != ROLL:
-				Global.coins-=25
+			if Global.coins >= 20 and state != ROLL:
+				Global.coins-=20
 				state = ROLL
 		ROLL:
 			

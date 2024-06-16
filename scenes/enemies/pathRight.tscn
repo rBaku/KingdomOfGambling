@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbf1c4ayinujy"]
+
+[ext_resource type="PackedScene" uid="uid://dxk4cjnysveiu" path="res://scenes/enemies/slime.tscn" id="1_kpyds"]
+
+[sub_resource type="Curve2D" id="Curve2D_qvjpj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 312, -8, 0, 0, 0, 0, 264, -8, 0, 0, 0, 0, 262, 72, 0, 0, 0, 0, 184, 70, 0, 0, 0, 0, 184, 24, 0, 0, 0, 0, 56, 23, 0, 0, 0, 0, 55, -9, 0, 0, 0, 0, 3, -9)
+}
+point_count = 8
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource("Curve2D_qvjpj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(312, -8)
+rotation = 3.14159
+rotates = false
+loop = false
+
+[node name="Slime" parent="PathFollow2D" instance=ExtResource("1_kpyds")]
+rotation = -3.14159

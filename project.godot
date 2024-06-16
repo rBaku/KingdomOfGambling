@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="Kingdom Of Gambling"
-run/main_scene="res://scenes/tutorial.tscn"
+run/main_scene="res://scenes/interfaz/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://scripts/Global.gd"
+
+[display]
+
+window/size/resizable=false
 
 [rendering]
 

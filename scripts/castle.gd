@@ -11,8 +11,7 @@ func _ready():
 func recibirDaño(daño):
 	vida -= daño
 	if vida <= 0:
-		print("se acaba el juego")
-		get_tree().change_scene_to_file("res://scenes/gameover.tscn")
+		get_tree().change_scene_to_file("res://scenes/interfaz/gameover.tscn")
 
 func _on_body_entered(body):
 	if body.is_in_group("targets"):

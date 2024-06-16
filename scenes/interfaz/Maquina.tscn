@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bqxh57a8ybceq" path="res://Assets/Sprites/MiniWorldSpritesByShade/Miscellaneous/Portal.png" id="1_50ich"]
 [ext_resource type="Script" path="res://scripts/Maquina.gd" id="1_gs43p"]
-[ext_resource type="PackedScene" uid="uid://b7c4pbaitia62" path="res://scenes/Tower.tscn" id="2_np6c6"]
+[ext_resource type="PackedScene" uid="uid://b7c4pbaitia62" path="res://scenes/towers/Tower.tscn" id="2_np6c6"]
 [ext_resource type="Script" path="res://scripts/Pool.gd" id="3_jsf6k"]
 
 [sub_resource type="Resource" id="Resource_4qluv"]

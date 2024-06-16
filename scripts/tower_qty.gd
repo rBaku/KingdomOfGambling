@@ -2,7 +2,7 @@ extends Label
 
 @export var scene:Node2D
 
-var tower = preload("res://scenes/Tower.tscn")
+var tower = preload("res://scenes/towers/Tower.tscn")
 
 func _process(delta):
 	self.text = str(Global.tower_qty)

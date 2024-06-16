@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn2rw5lsf3x1"]
+
+[ext_resource type="FontFile" uid="uid://dkt8o8tx8d1rd" path="res://Assets/fonts/PublicPixel-z84yD.ttf" id="1_td0ri"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_xhboe"]
+[ext_resource type="Texture2D" uid="uid://c572fp3f7h0kl" path="res://Assets/Sprites/tittle screen.png" id="2_veqmj"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xhboe")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_veqmj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -127.0
+offset_right = 79.0
+offset_bottom = -74.9999
+grow_vertical = 0
+scale = Vector2(2.24, 2.24)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="separator" type="Control" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/separator"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 32.1429
+offset_top = -217.411
+offset_right = 204.143
+offset_bottom = -201.411
+grow_horizontal = 2
+scale = Vector2(1.38871, 1.38871)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("1_td0ri")
+text = "Kingdom of Gamblings
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_fonts/font = ExtResource("1_td0ri")
+text = "Play"
+
+[node name="Exit" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_td0ri")
+text = "Exit"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
