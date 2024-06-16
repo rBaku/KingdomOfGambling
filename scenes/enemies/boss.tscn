@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://cgow6176flc6c"]
+
+[ext_resource type="Script" path="res://scripts/boss.gd" id="1_prs7u"]
+[ext_resource type="Texture2D" uid="uid://b3oi55v1fthrd" path="res://Assets/Sprites/MiniWorldSpritesByShade/Characters/Monsters/Dragons/RedDragon.png" id="2_8q85e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wgn1"]
+atlas = ExtResource("2_8q85e")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv2ce"]
+atlas = ExtResource("2_8q85e")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72wu7"]
+atlas = ExtResource("2_8q85e")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu6fs"]
+atlas = ExtResource("2_8q85e")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct0a7"]
+atlas = ExtResource("2_8q85e")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij47q"]
+atlas = ExtResource("2_8q85e")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgfs1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wgn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pv2ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72wu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu6fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct0a7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij47q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7l8h"]
+size = Vector2(25, 9)
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["targets"]]
+scale = Vector2(2.24, 2.24)
+script = ExtResource("1_prs7u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hgfs1")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.697019
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_a7l8h")

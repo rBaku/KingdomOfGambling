@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dtful7rf7ohbc"]
+[gd_scene load_steps=41 format=3 uid="uid://dtful7rf7ohbc"]
 
 [ext_resource type="Texture2D" uid="uid://c7u3m6l1gmtx1" path="res://Assets/Sprites/BasicTowerDefenseByCherlie.png" id="1_ljjpk"]
 [ext_resource type="Texture2D" uid="uid://dspjqdkkpdxc4" path="res://Assets/Sprites/MiniWorldSpritesByShade/Buildings/Red/RedBarracks.png" id="2_4b3ly"]
@@ -13,9 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://dbf1c4ayinujy" path="res://scenes/enemies/pathRight.tscn" id="9_i805y"]
 [ext_resource type="FontFile" uid="uid://dkt8o8tx8d1rd" path="res://Assets/fonts/PublicPixel-z84yD.ttf" id="10_i0l5l"]
 [ext_resource type="PackedScene" uid="uid://d07qtfpmc1np7" path="res://scenes/enemies/pathDown.tscn" id="10_p8rg6"]
+[ext_resource type="PackedScene" uid="uid://c84v7wq8ttk4e" path="res://scenes/enemies/topLeft.tscn" id="11_qpye1"]
 [ext_resource type="Script" path="res://scripts/tower_qty.gd" id="11_v41r2"]
+[ext_resource type="PackedScene" uid="uid://ctfvls6kb7j2e" path="res://scenes/enemies/downLeft.tscn" id="12_n6vlv"]
 [ext_resource type="Texture2D" uid="uid://cij7wq524043d" path="res://Assets/Sprites/menu.png" id="12_xtcn2"]
+[ext_resource type="PackedScene" uid="uid://dfxttkf12m2it" path="res://scenes/enemies/topRight.tscn" id="13_5x5li"]
 [ext_resource type="PackedScene" uid="uid://bc3p0wtsk71xj" path="res://scenes/interfaz/Maquina.tscn" id="13_u1v55"]
+[ext_resource type="PackedScene" uid="uid://bba8ljb1ucsqx" path="res://scenes/enemies/pathboss.tscn" id="14_qtvwt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeqcf"]
 texture = ExtResource("1_ljjpk")
@@ -198,6 +202,34 @@ timeEnd = 10000000
 enemy = ExtResource("8_8yx1j")
 enemySpawnDelay = 1
 
+[sub_resource type="Resource" id="Resource_aem68"]
+script = ExtResource("7_lqk4x")
+timeStart = 180
+timeEnd = 1000000
+enemy = ExtResource("11_qpye1")
+enemySpawnDelay = 5
+
+[sub_resource type="Resource" id="Resource_3q6ra"]
+script = ExtResource("7_lqk4x")
+timeStart = 180
+timeEnd = 10000000
+enemy = ExtResource("12_n6vlv")
+enemySpawnDelay = 5
+
+[sub_resource type="Resource" id="Resource_frd3u"]
+script = ExtResource("7_lqk4x")
+timeStart = 180
+timeEnd = 1000000
+enemy = ExtResource("13_5x5li")
+enemySpawnDelay = 5
+
+[sub_resource type="Resource" id="Resource_qa2hg"]
+script = ExtResource("7_lqk4x")
+timeStart = 210
+timeEnd = 213
+enemy = ExtResource("14_qtvwt")
+enemySpawnDelay = 1
+
 [node name="Level_1" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -219,7 +251,7 @@ vidaMaxima = 545
 
 [node name="Pathspawner" type="Node2D" parent="."]
 script = ExtResource("5_qniyf")
-spawns = Array[ExtResource("7_lqk4x")]([SubResource("Resource_02tpx"), SubResource("Resource_b3u6h"), SubResource("Resource_pa7dc"), SubResource("Resource_hwo3v"), SubResource("Resource_17tfk"), SubResource("Resource_a0x67"), SubResource("Resource_twlil"), SubResource("Resource_5pas3"), SubResource("Resource_x8ppd"), SubResource("Resource_n7gfq"), SubResource("Resource_2n54c"), SubResource("Resource_56vnn")])
+spawns = Array[ExtResource("7_lqk4x")]([SubResource("Resource_02tpx"), SubResource("Resource_b3u6h"), SubResource("Resource_pa7dc"), SubResource("Resource_hwo3v"), SubResource("Resource_17tfk"), SubResource("Resource_a0x67"), SubResource("Resource_twlil"), SubResource("Resource_5pas3"), SubResource("Resource_x8ppd"), SubResource("Resource_n7gfq"), SubResource("Resource_2n54c"), SubResource("Resource_56vnn"), SubResource("Resource_aem68"), SubResource("Resource_3q6ra"), SubResource("Resource_frd3u"), SubResource("Resource_qa2hg")])
 
 [node name="Timer" type="Timer" parent="Pathspawner"]
 autostart = true

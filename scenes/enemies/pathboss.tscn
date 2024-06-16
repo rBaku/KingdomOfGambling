@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bba8ljb1ucsqx"]
+
+[ext_resource type="PackedScene" uid="uid://cgow6176flc6c" path="res://scenes/enemies/boss.tscn" id="1_nqscn"]
+
+[sub_resource type="Curve2D" id="Curve2D_fojgs"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 400, -177, 0, 0, 0, 0, -432, -170, 0, 0, 0, 0, -422, 244, 0, 0, 0, 0, 429, 268, 0, 0, 0, 0, 407, -120, 0, 0, 0, 0, -434, -139, 0, 0, 0, 0, -426, 276, 0, 0, 0, 0, 413, 286, 0, 0, 0, 0, 414, -76, 0, 0, 0, 0, -463, -103, 0, 0, 0, 0, -430, 302, 0, 0, 0, 0, 446, 312, 0, 0, 0, 0, 409, 41, 0, 0, 0, 0, -450, 36, 0, 0, 0, 0, -426, 284, 0, 0, 0, 0, 471, 302, 0, 0, 0, 0, 439, 100, 0, 0, 0, 0, -436, 111, 0, 0, 0, 0, -443, 295, 0, 0, 0, 0, 465, 312, 0, 0, 0, 0, 453, 153, 0, 0, 0, 0, -461, 164, 0, 0, 0, 0, -455, 276, 0, 0, 0, 0, 476, 295, 0, 0, 0, 0, 494, -17, 0, 0, 0, 0, -7, -13)
+}
+point_count = 26
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource("Curve2D_fojgs")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(400, -177)
+rotation = 3.13318
+rotates = false
+loop = false
+
+[node name="CharacterBody2D" parent="PathFollow2D" instance=ExtResource("1_nqscn")]
+rotation = 3.14159

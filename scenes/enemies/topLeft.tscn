@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c84v7wq8ttk4e"]
+
+[ext_resource type="PackedScene" uid="uid://diklwh7jrvox5" path="res://scenes/enemies/esqueleto.tscn" id="1_a7ak7"]
+
+[sub_resource type="Curve2D" id="Curve2D_jw47c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -385, -144, 0, 0, 0, 0, -330, -139, 0, 0, 0, 0, -269, -105, 0, 0, 0, 0, -157, -80, 0, 0, 0, 0, -66, -62, 0, 0, 0, 0, -5, -6)
+}
+point_count = 6
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource("Curve2D_jw47c")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-385, -144)
+rotation = 0.0906599
+rotates = false
+loop = false
+
+[node name="esqueleto" parent="PathFollow2D" instance=ExtResource("1_a7ak7")]

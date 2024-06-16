@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://diklwh7jrvox5"]
+
+[ext_resource type="Texture2D" uid="uid://csatqr3ukg80u" path="res://Assets/Sprites/MiniWorldSpritesByShade/Characters/Monsters/Undead/Skeleton-Soldier.png" id="1_dfgqn"]
+[ext_resource type="Script" path="res://scripts/esqueleto.gd" id="1_jhdxs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqeeo"]
+atlas = ExtResource("1_dfgqn")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3vlp"]
+atlas = ExtResource("1_dfgqn")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeryw"]
+atlas = ExtResource("1_dfgqn")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28qt3"]
+atlas = ExtResource("1_dfgqn")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycmos"]
+atlas = ExtResource("1_dfgqn")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_emxb4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqeeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3vlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeryw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28qt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycmos")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsaqw"]
+size = Vector2(20, 36.1072)
+
+[node name="esqueleto" type="CharacterBody2D" groups=["targets"]]
+script = ExtResource("1_jhdxs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_emxb4")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.0220739
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.19209e-07)
+rotation = -3.14159
+scale = Vector2(0.332344, 0.332344)
+shape = SubResource("RectangleShape2D_bsaqw")
