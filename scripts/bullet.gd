@@ -17,7 +17,7 @@ func _on_body_entered(body):
 		self.queue_free()
 		body.health -= 20
 		if body.health <= 0:
-			Global.coins += 10
+			Global.coins += body.coin
 			body.queue_free()
 			print("slime died")
 			
