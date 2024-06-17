@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu7funwhnl0pl"]
+
+[ext_resource type="Script" path="res://scripts/Victory.gd" id="1_5quvx"]
+[ext_resource type="FontFile" uid="uid://dkt8o8tx8d1rd" path="res://Assets/fonts/PublicPixel-z84yD.ttf" id="1_uomag"]
+[ext_resource type="Texture2D" uid="uid://brrpd1mre4eko" path="res://Assets/Sprites/celebracion.jpg" id="2_s5wge"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5quvx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_s5wge")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Separator" type="Control" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/Separator"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.0
+offset_top = -177.0
+offset_right = -245.0
+offset_bottom = -154.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6.41705, 6.41705)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("1_uomag")
+text = "Victory"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="separator" type="Control" parent="TextureRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Exit" type="Button" parent="TextureRect/MarginContainer/HBoxContainer/separator"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.0
+offset_top = 8.0
+offset_right = -49.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(3.14285, 3.14285)
+theme_override_fonts/font = ExtResource("1_uomag")
+text = "Exit"
+
+[connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/separator/Exit" to="." method="_on_exit_pressed"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=42 format=3 uid="uid://dtful7rf7ohbc"]
+[gd_scene load_steps=43 format=3 uid="uid://dtful7rf7ohbc"]
 
+[ext_resource type="Script" path="res://scripts/level_1.gd" id="1_735my"]
 [ext_resource type="Texture2D" uid="uid://c7u3m6l1gmtx1" path="res://Assets/Sprites/BasicTowerDefenseByCherlie.png" id="1_ljjpk"]
 [ext_resource type="Texture2D" uid="uid://dspjqdkkpdxc4" path="res://Assets/Sprites/MiniWorldSpritesByShade/Buildings/Red/RedBarracks.png" id="2_4b3ly"]
 [ext_resource type="Texture2D" uid="uid://bqxh57a8ybceq" path="res://Assets/Sprites/MiniWorldSpritesByShade/Miscellaneous/Portal.png" id="2_sy0pl"]
@@ -232,6 +233,9 @@ enemy = ExtResource("14_qtvwt")
 enemySpawnDelay = 1
 
 [node name="Level_1" type="Node2D"]
+
+[node name="Controlador" type="Node2D" parent="."]
+script = ExtResource("1_735my")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-16, 0)
